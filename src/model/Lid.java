@@ -1,6 +1,6 @@
 package model;
 
-public class Lid {
+public class Lid implements Comparable {
     private String naam;
     private int numOpkomsten;
 
@@ -27,5 +27,11 @@ public class Lid {
 
     public String toString() {
         return "Lid " + naam + " met " + numOpkomsten + " opkomsten";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        int compareOpkomstNum = ((Lid) o).getNumOpkomsten();
+        return this.numOpkomsten - compareOpkomstNum;
     }
 }

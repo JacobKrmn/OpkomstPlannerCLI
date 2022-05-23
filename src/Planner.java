@@ -72,14 +72,16 @@ public class Planner {
         //Go over list of opkomsten and assign next two leden in the list to an opkomst
         int lidIndex = 0;
         for (Opkomst opkomst : opkomsten) {
-            if (!(lidIndex >= leden.size()) && !(lidIndex + 1 >= leden.size())) {
-                lidIndex = fillOpkomst(opkomst, lidIndex);
-            } else {
-                //Re-randomize list of names and reset the lidIndex to 0 to restart the count
-                Collections.shuffle(leden);
-                lidIndex = 0;
-                lidIndex = fillOpkomst(opkomst, lidIndex);
-            }
+            Lid lid1 = leden.get(0);
+            lid1.addOpkomst();
+            opkomst.setLid1(lid1);
+
+            Lid lid2 = leden.get(1);
+            lid2.addOpkomst();
+            opkomst.setLid2(lid2);
+
+            //Sort list to distribute opkomsten evenly
+            Collections.sort(leden);
         }
 
         for (Opkomst opkomst : opkomsten) {
@@ -92,17 +94,5 @@ public class Planner {
         for (Lid lid : leden) {
             System.out.println(lid.toString());
         }
-    }
-
-    private int fillOpkomst(Opkomst opkomst, int lidIndex) {
-        Lid lid1 = leden.get(lidIndex);
-        lid1.addOpkomst();
-        opkomst.setLid1(lid1);
-        lidIndex++;
-        Lid lid2 = leden.get(lidIndex);
-        lid2.addOpkomst();
-        opkomst.setLid2(lid2);
-
-        return lidIndex;
     }
 }
