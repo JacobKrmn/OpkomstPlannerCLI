@@ -63,4 +63,8 @@ public class Planner {
 
         return results;
     }
+
+    public void planOpkomsten() {
+        //TODO add code logic
+    }
 }
