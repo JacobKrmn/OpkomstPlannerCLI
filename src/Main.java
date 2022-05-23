@@ -15,5 +15,8 @@ public class Main {
         } catch (Exception ex) {
             System.out.println("[ERR] Er is een fout opgetreden.");
         }
+
+        System.out.println("[INFO] Opkomsten aan het plannen.");
+        planner.planOpkomsten();
     }
 }

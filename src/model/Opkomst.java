@@ -16,8 +16,16 @@ public class Opkomst {
         return lid1;
     }
 
+    public void setLid1(Lid lid) {
+        lid1 = lid;
+    }
+
     public Lid getLid2() {
         return lid2;
+    }
+
+    public void setLid2(Lid lid) {
+        lid2 = lid;
     }
 
     public String getDatum() {
@@ -29,8 +37,6 @@ public class Opkomst {
     }
 
     public String toString() {
-        String str = "Opkomst van %s en %s op %s";
-        str.format(str, lid1.getNaam(), lid2.getNaam(), datum);
-        return str;
+        return "Opkomst van " + lid1.getNaam() + " en " + lid2.getNaam() + " op " + datum;
     }
 }
