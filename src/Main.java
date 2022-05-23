@@ -12,7 +12,7 @@ public class Main {
             planner.readData();
             planner.listData();
         } catch (Exception ex) {
-            System.out.println("[ERR] Er is een fout opgetreden");
+            System.out.println("[ERR] Er is een fout opgetreden.");
         }
     }
 }
